@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# A simple script to automate the writing of docker commands
+# when using docker as a disposable workspace.
+
+IMAGE="$1"
+BG=true
+docker_cmd="docker run --rm --name rundock-$IMAGE"
+
+while [[ $# > 0 ]]
+do
+key="$1"
+
+case $key in
+    -l|--link)
+    docker_cmd="$docker_cmd --link $2"
+    shift # past argument
+    ;;
+    -w|--workspace)
+    BG=false
+    docker_cmd="$docker_cmd "
+    # docker_cmd="$docker_cmd -p 80 -it -v "$PWD":/usr/src/myapp -w /usr/src/myapp"
+    shift # past argument
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+shift # past argument or value
+done
+
+echo "$IMAGE"
+
+# If it is an nginx project we need this in the config
+if [[ "$IMAGE" == "nginx" ]] ; then
+    docker_cmd="$docker_cmd -p 80 -v "$PWD":/usr/share/nginx/html:ro $IMAGE"
+    echo "Running: ${docker_cmd}"
+    eval "$docker_cmd"
+    exit
+fi
+
+# If it is an Node.js project we need this in the config
+if [[ "$IMAGE" == "node" ]] ; then
+    docker_cmd="$docker_cmd  -it -p 80 -v "$PWD":/usr/src/myapp -w /usr/src/myapp $IMAGE /bin/bash"
+    echo "Running: ${docker_cmd}"
+    eval "$docker_cmd"
+    exit
+fi
+
+# If we want to run the container in the background (ex: databases)
+if [ "$BG" = true ] ; then
+    docker_cmd="$docker_cmd > /dev/null 2>&1 &"
+    echo "Running in background: ${docker_cmd}"
+    eval "$docker_cmd"
+    exit 1
+fi
+
+
+# For any other images we will run some defaults
+docker_cmd="$docker_cmd  -it -p 80 -v "$PWD":/usr/src/myapp -w /usr/src/myapp $IMAGE /bin/bash"
+echo "Running workspace: ${docker_cmd}"
+eval $docker_cmd
+exit

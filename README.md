@@ -2,7 +2,7 @@
 .BashInNuggets (.bin) is a little collection of my bash scripts that I write when I decide to waste
 my time with automating random stuff. Relevant:
 
-![xkcd](https://imgs.xkcd.com/comics/automation.png "")
+![xkcd](https://imgs.xkcd.com/comics/automation.png)
 
 ## Table of Contents
 

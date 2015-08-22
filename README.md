@@ -6,7 +6,7 @@ my time with automating random stuff. Relevant:
 
 # Table of Contents
 
-  1. [General Installation](#General Installation)
+  1. [General Installation](#general-installation)
   1. [rundock](#rundock)
 
 

@@ -4,28 +4,30 @@ my time with automating random stuff. Relevant:
 
 ![xkcd](https://imgs.xkcd.com/comics/automation.png)
 
-## Table of Contents
+# Table of Contents
 
   1. [rundock](#rundock)
-  1. [HTML Questions](#html-questions)
-  1. [CSS Questions](#css-questions)
-  1. [JS Questions](#js-questions)
-  1. [Testing Questions](#testing-questions)
-  1. [Performance Questions](#performance-questions)
-  1. [Network Questions](#network-questions)
-  1. [Coding Questions](#coding-questions)
-  1. [Fun Questions](#fun-questions)
 
 
+# General Installation
+Each one of these scripts can be installed seperately or you can grab the whole collection.
+There is no real installation process, as these are all just little scripts you can run with:
 
-## rundock
+    $ ./script_name
+
+That's it!  If you want to make these scripts available globally, you can move them into a folder
+which is contained in your $PATH variable.  For instance `/usr/local/bin`
+
+
+*************************************
+# rundock
 My personal bash script for running disposable development docker containers
 
 ## What does it do?
 rundock is a simple script using Docker which will create/run a new docker image that mounts your 
 current directory as the workspace. I think it's easier to describe with an example...
 
-### Example:
+## Example:
 I have a Node.js application already half written. I `cd` into the base directory of my app. It looks
 something like this:
 
@@ -62,5 +64,3 @@ images together using
 - [ElasticSearch](https://hub.docker.com/_/elasticsearch/)
 - [Nginx](https://hub.docker.com/_/nginx/)
 
-## Install
-If you want to install this, you should know how to install this.

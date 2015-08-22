@@ -24,11 +24,11 @@ which is contained in your $PATH variable.  For instance `/usr/local/bin`
 # rundock
 My personal bash script for running disposable development docker containers
 
-## What does it do?
+#### What does it do?
 rundock is a simple script using Docker which will create/run a new docker image that mounts your 
 current directory as the workspace. I think it's easier to describe with an example...
 
-## Example:
+#### Example:
 I have a Node.js application already half written. I `cd` into the base directory of my app. It looks
 something like this:
 
@@ -50,16 +50,16 @@ that container's bash.
 
 Now I can run `node index.js` and I didn't install anything on my base OS (besides Docker of course)!
 
-## How does it handle ports?
+#### How does it handle ports?
 On workspaces, port 80 is exposed on the container with -p 80
 
-## How does it handle connecting databases? (linking)
+#### How does it handle connecting databases? (linking)
 Assuming you already ran `rundock mongo` and `rundock elasticsearch` You can link your docker 
 images together using 
 
     rundock node -w -l mongo -l elasticsearch
     
-## Tested to be working Images
+#### Tested to be working Images
 - [Node.js](https://hub.docker.com/_/node/)
 - [MongoDB](https://hub.docker.com/_/mongo/)
 - [ElasticSearch](https://hub.docker.com/_/elasticsearch/)

@@ -8,6 +8,7 @@ my time with automating random stuff. Relevant:
 
   1. [General Installation](#general-installation)
   1. [rundock](#rundock)
+  1. [brightness](#brightness)
 
 
 # General Installation
@@ -65,3 +66,7 @@ images together using
 - [ElasticSearch](https://hub.docker.com/_/elasticsearch/)
 - [Nginx](https://hub.docker.com/_/nginx/)
 
+*************************************
+# brightness
+This is a script that I use on my Chromebook Pixel 2015 for controlling the screen brightness.
+I got the script from [this repository](https://github.com/raphael/linux-4.1-samus)

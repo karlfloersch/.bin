@@ -70,3 +70,6 @@ images together using
 # brightness
 This is a script that I use on my Chromebook Pixel 2015 for controlling the screen brightness.
 I got the script from [this repository](https://github.com/raphael/linux-4.1-samus)
+
+Don't use it unless you have a Chromebook pixel 2015... Actually don't use it at all because you
+should just clone linux-4.1-samus instead.
